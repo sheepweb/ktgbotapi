@@ -27,7 +27,8 @@ fun TelegramMediaVideo(
     width: Int? = null,
     height: Int? = null,
     duration: Long? = null,
-    thumb: InputFile? = null
+    thumb: InputFile? = null,
+    supportsStreaming: Boolean? = null
 ) = TelegramMediaVideo(
     file = file,
     text = text,
@@ -40,7 +41,8 @@ fun TelegramMediaVideo(
     width = width,
     height = height,
     duration = duration,
-    thumb = thumb
+    thumb = thumb,
+    supportsStreaming = supportsStreaming
 )
 
 fun TelegramMediaVideo(
@@ -53,7 +55,8 @@ fun TelegramMediaVideo(
     width: Int? = null,
     height: Int? = null,
     duration: Long? = null,
-    thumb: InputFile? = null
+    thumb: InputFile? = null,
+    supportsStreaming: Boolean? = null
 ) = TelegramMediaVideo(
     file = file,
     text = entities.makeString(),
@@ -66,7 +69,8 @@ fun TelegramMediaVideo(
     width = width,
     height = height,
     duration = duration,
-    thumb = thumb
+    thumb = thumb,
+    supportsStreaming = supportsStreaming
 )
 
 @ConsistentCopyVisibility
@@ -90,7 +94,9 @@ data class TelegramMediaVideo internal constructor (
     override val width: Int? = null,
     override val height: Int? = null,
     override val duration: Long? = null,
-    override val thumb: InputFile? = null
+    override val thumb: InputFile? = null,
+    @SerialName(supportsStreamingField)
+    val supportsStreaming: Boolean? = null
 ) : TelegramFreeMedia,
     SizedTelegramMedia,
     DuratedTelegramMedia,
